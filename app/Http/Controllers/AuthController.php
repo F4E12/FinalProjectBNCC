@@ -30,6 +30,10 @@ class AuthController extends Controller
 
     public function register(Request $r)
     {
+        Session::flash('name', $r->name);
+        Session::flash('email', $r->email);
+        Session::flash('password', $r->password);
+        Session::flash('phonenumber', $r->phonenumber);
         $r->validate([
             'name'=> [
                 'required',
@@ -60,8 +64,8 @@ class AuthController extends Controller
             'email.unique' => 'Email ini sudah terdaftar',
             'email.ends_with' => 'Email harus diakhiri dengan "@gmail.com".',
             'email.not_starts_with' => 'Email tidak boleh dimulai dengan ".com".',
-            'password.min' => 'Password harus terdiri dari 6 hingga 12 karakter secara inklusif.',
-            'password.max' => 'Password harus terdiri dari 6 hingga 12 karakter secara inklusif.',
+            'password.min' => 'Password harus terdiri dari 6 hingga 12 karakter',
+            'password.max' => 'Password harus terdiri dari 6 hingga 12 karakter.',
             'phonenumber.starts_with' => 'Nomor telepon harus dimulai dengan angka 08',
         ]);
 

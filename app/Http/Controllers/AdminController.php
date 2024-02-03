@@ -28,7 +28,7 @@ class AdminController extends Controller
             ],
             'amount' => [
                 'required',
-                'gt:0',
+                'gte:0',
             ],'image' => [
                 'required',
                 'file',
@@ -97,7 +97,7 @@ class AdminController extends Controller
             ],
             'amount' => [
                 'required',
-                'gt:0',
+                'gte:0',
             ],'image' => [
                 'required',
                 'file',

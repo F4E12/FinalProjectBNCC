@@ -12,22 +12,24 @@
         @csrf
         <div class="name">
             <p for="name">Nama Lengkap</p>
-            <input type="text" name="name" id="">
+            <input type="text" name="name" id="" value="{{Session::get('name')}}">
         </div>
         <div class="email">
             <p for="email">Email</p>
-            <input type="email" name="email" id="email">
+            <input type="email" name="email" id="email" value="{{Session::get('email')}}">
         </div>
         <div class="password">
             <p for="password">Password</p>
-            <input type="password" name="password" id="">
+            <input type="password" name="password" id="" value="{{Session::get('password')}}">
         </div>
         <div class="phonenumber">
             <p for="phonenumber">Nomor Handphone</p>
-            <input type="text" name="phonenumber" id="">
+            <input type="text" name="phonenumber" id="" value="{{Session::get('phonenumber')}}">
         </div>
         <input type="submit" value="Register">
     </form>
+    <p>Sudah punya akun?</p>
+    <a href="{{route('loginpage')}}">Masuk sekarang</a>
     <div class="error-sec">
         @if($errors->any())
             <div class="">

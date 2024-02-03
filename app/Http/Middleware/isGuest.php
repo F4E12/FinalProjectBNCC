@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class isAdmin
+class isGuest
 {
     /**
      * Handle an incoming request.
@@ -17,10 +17,10 @@ class isAdmin
      */
     public function handle(Request $request, Closure $next)
     {
-        if (Auth::check() && Auth::user()->adminID) {
-            return $next($request);
+        if(Auth::check())
+        {
+            return redirect('cartPage');
         }
-
-        return redirect()->route('cartpage');
+        return $next($request);
     }
 }

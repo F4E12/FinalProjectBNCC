@@ -20,6 +20,8 @@
         </div>
         <input type="submit" value="Login">
     </form>
+    <p>Belum punya akun?</p>
+    <a href="{{route('registerpage')}}">Buat sekarang</a>
     <div class="error-sec">
         @if($errors->any())
             <div class="">
