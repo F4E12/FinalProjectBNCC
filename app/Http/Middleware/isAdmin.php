@@ -21,6 +21,6 @@ class isAdmin
             return $next($request);
         }
 
-        return redirect()->route('cartpage');
+        return redirect()->route('catalogpage');
     }
 }

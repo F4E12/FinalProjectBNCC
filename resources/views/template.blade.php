@@ -15,6 +15,7 @@
         @if(Auth::user()->adminID)
             <a href="{{route('adminpage')}}">Halaman Admin</a>
         @endif
+        <p>{{Auth::user()->name}}</p>
     </div>
     @auth
         <form action="{{route('logout')}}" method="get"><input type="submit" value="Log Out"></form>

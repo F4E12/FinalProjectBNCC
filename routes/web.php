@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\FrakturController;
 use App\Http\Controllers\ItemController;
 use Illuminate\Support\Facades\Route;
 
@@ -37,6 +38,9 @@ Route::post('/adminPage/saveupdate/{id}', [AdminController::class, 'saveitem'])-
 
 //USER CART
 Route::get('/cartPage', [CartController::class, 'viewItem'])->name('cartpage');
+Route::get('/cartPage/saveinvoice', [CartController::class, 'saveinvoice'])->name('saveinvoice');
+Route::post('/cartPage/changeamount/{id}', [CartController::class, 'changeamount'])->name('changeamount');
+Route::get('/cartPage/deletefromcart/{id}', [CartController::class, 'deletefromcart'])->name('deletefromcart');
 
 //CATALOG
 Route::get('/catalogPage', [ItemController::class, 'viewItem'])->name('catalogpage');
@@ -44,3 +48,8 @@ Route::get('/catalogPage/addtocart/{id}', [ItemController::class, 'addtocart'])-
 
 //LOGOUT
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+
+//FRAKTUR
+Route::get('/frakturPage', [FrakturController::class, 'viewItem'])->name('frakturpage');
+Route::post('/frakturPage/vaildate', [FrakturController::class, 'validatecart'])->name('validatecart');
+Route::get('/frakturPage/printfraktur', [FrakturController::class, 'printfraktur'])->name('printfraktur');
