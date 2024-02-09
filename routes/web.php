@@ -31,25 +31,25 @@ Route::post('/register/auth', [AuthController::class, 'register'])->name('regist
 
 //ADMIN CRUD
 Route::get('/adminPage', [AdminController::class, 'viewItem'])->name('adminpage')->middleware('isAdmin');
-Route::post('/adminPage/additem', [AdminController::class, 'additem'])->name('additem')->middleware('isAdmin');;
-Route::get('/adminPage/delete/{id}', [AdminController::class, 'deleteitem'])->name('deleteitem')->middleware('isAdmin');;
-Route::get('/adminPage/update/{id}', [AdminController::class, 'updateitem'])->name('updateitem')->middleware('isAdmin');;
-Route::post('/adminPage/saveupdate/{id}', [AdminController::class, 'saveitem'])->name('saveupdate')->middleware('isAdmin');;
+Route::post('/adminPage/additem', [AdminController::class, 'additem'])->name('additem')->middleware('isAdmin');
+Route::get('/adminPage/delete/{id}', [AdminController::class, 'deleteitem'])->name('deleteitem')->middleware('isAdmin');
+Route::get('/adminPage/update/{id}', [AdminController::class, 'updateitem'])->name('updateitem')->middleware('isAdmin');
+Route::post('/adminPage/saveupdate/{id}', [AdminController::class, 'saveitem'])->name('saveupdate')->middleware('isAdmin');
 
 //USER CART
-Route::get('/cartPage', [CartController::class, 'viewItem'])->name('cartpage');
-Route::get('/cartPage/saveinvoice', [CartController::class, 'saveinvoice'])->name('saveinvoice');
-Route::post('/cartPage/changeamount/{id}', [CartController::class, 'changeamount'])->name('changeamount');
-Route::get('/cartPage/deletefromcart/{id}', [CartController::class, 'deletefromcart'])->name('deletefromcart');
+Route::get('/cartPage', [CartController::class, 'viewItem'])->name('cartpage')->middleware('isLogin')->middleware('isLogin');
+Route::get('/cartPage/saveinvoice', [CartController::class, 'saveinvoice'])->name('saveinvoice')->middleware('isLogin')->middleware('isLogin');
+Route::post('/cartPage/changeamount/{id}', [CartController::class, 'changeamount'])->name('changeamount')->middleware('isLogin')->middleware('isLogin');
+Route::get('/cartPage/deletefromcart/{id}', [CartController::class, 'deletefromcart'])->name('deletefromcart')->middleware('isLogin')->middleware('isLogin');
 
 //CATALOG
-Route::get('/catalogPage', [ItemController::class, 'viewItem'])->name('catalogpage');
-Route::get('/catalogPage/addtocart/{id}', [ItemController::class, 'addtocart'])->name('addtocart');
+Route::get('/catalogPage', [ItemController::class, 'viewItem'])->name('catalogpage')->middleware('isLogin');
+Route::get('/catalogPage/addtocart/{id}', [ItemController::class, 'addtocart'])->name('addtocart')->middleware('isLogin');
 
 //LOGOUT
-Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+Route::get('/logout', [AuthController::class, 'logout'])->name('logout')->middleware('isLogin');
 
 //FRAKTUR
-Route::get('/frakturPage', [FrakturController::class, 'viewItem'])->name('frakturpage');
-Route::post('/frakturPage/vaildate', [FrakturController::class, 'validatecart'])->name('validatecart');
-Route::get('/frakturPage/printfraktur', [FrakturController::class, 'printfraktur'])->name('printfraktur');
+Route::get('/frakturPage', [FrakturController::class, 'viewItem'])->name('frakturpage')->middleware('isLogin');
+Route::post('/frakturPage/vaildate', [FrakturController::class, 'validatecart'])->name('validatecart')->middleware('isLogin');
+Route::get('/frakturPage/printfraktur', [FrakturController::class, 'printfraktur'])->name('printfraktur')->middleware('isLogin');
