@@ -8,29 +8,35 @@
     <title>Login</title>
 </head>
 <body>
-    <form action="{{route('login')}}" method="POST">
-        @csrf
-        <div class="username">
-            <p for="email">Email</p>
-            <input type="email" name="email" id="">
-        </div>
-        <div class="password">
-            <p for="password">Password</p>
-            <input type="password" name="password" id="">
-        </div>
-        <input type="submit" value="Login">
-    </form>
-    <p>Belum punya akun?</p>
-    <a href="{{route('registerpage')}}">Buat sekarang</a>
-    <div class="error-sec">
-        @if($errors->any())
-            <div class="">
-                    @foreach($errors->all() as $error)
-                        {{ $error }}
-                    @endforeach
+    <div class="login-register-container">
+        <h3>Login</h3>
+        <div class="form-sec-login">
+            <form action="{{route('login')}}" method="POST">
+                @csrf
+                <div class="email">
+                    <p id="email-p">Email</p>
+                    <input type="email" name="email" id="email-inp">
+                </div>
+                <div class="password">
+                    <p id="password-p">Password</p>
+                    <input type="password" name="password" id="email-inp">
+                </div>
+                <input type="submit" value="Login" class="submit-button">
+            </form>
+            <div class="hyperlink-sec">
+                <p>Belum punya akun?</p>
+                <a href="{{route('registerpage')}}">Buat sekarang</a>
             </div>
-        @endif
+        </div>
+        <div class="error-sec">
+            @if($errors->any())
+                <div class="">
+                        @foreach($errors->all() as $error)
+                            {{ $error }}
+                        @endforeach
+                </div>
+            @endif
+        </div>
     </div>
-
 </body>
 </html>

@@ -1,3 +1,75 @@
 p{
     margin: 0;
 }
+
+.login-register-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.form-sec-login{
+    display: flex;
+    flex-direction: column;
+    height: 200px;
+    width: 250px;
+    border-radius: 10px;
+    border: black 1px solid;
+    padding: 10px;
+}
+
+.form-sec-reg{
+    display: flex;
+    flex-direction: column;
+    height: 300px;
+    width: 250px;
+    border-radius: 10px;
+    border: black 1px solid;
+    padding: 10px;
+}
+
+.email,
+.name,
+.phonenumber,
+.password {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+#email-p,
+#password-p,
+#name-p,
+#phonenumber-p {
+    color: #000000;
+    font-family: 'Lucida Sans';
+}
+
+#email-inp,
+#password-inp,
+#name-inp,
+#phonenumber-inp {
+    font-family: 'Lucida Sans';
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.submit-button{
+    background-color: #65B741;
+    margin-top: 5px;
+    border-radius: 10px;
+    border: none;
+    height: 25px;
+    width: 100%;
+    color: #FBF6EE;
+}
+
+.hyperlink-sec{
+    margin: 5px;
+    font-family: 'Lucida Sans';
+    text-align: center;
+}
