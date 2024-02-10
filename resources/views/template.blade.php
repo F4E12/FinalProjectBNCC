@@ -8,23 +8,29 @@
     <title>@yield('title', 'Default Title')</title>
 </head>
 <body>
-    <div class="pages">
-        <a href="{{route('welcome')}}">Beranda</a>
-        <a href="{{route('cartpage')}}">Cart</a>
-        <a href="{{route('catalogpage')}}">Catalog</a>
-        @if(Auth::user()->adminID)
-            <a href="{{route('adminpage')}}">Halaman Admin</a>
-        @endif
-        <p>{{Auth::user()->name}}</p>
+    <div class="navbar">
+        <div class="left-nav">
+            <a href="{{route('welcome')}}" class="a-page">Beranda</a>
+            <a href="{{route('cartpage')}}" class="a-page">Keranjang</a>
+            <a href="{{route('catalogpage')}}" class="a-page">Catalog</a>
+            @auth
+                @if(Auth::user()->adminID)
+                    <a href="{{route('adminpage')}}" class="a-page">Halaman Admin</a>
+                @endif
+            @endauth
+        </div>
+        <div class="right-nav">
+            @auth
+                <p>Selamat Datang {{Auth::user()->name}}</p>
+                <a href="{{route('logout')}}" class="nav-btn">Keluar</a>
+            @else
+                <a href="{{route('loginpage')}}" class="nav-btn">Login</a>
+                <a href="{{route('registerpage')}}" class="nav-btn">Daftar</a>
+            @endauth
+        </div>
     </div>
-    @auth
-        <form action="{{route('logout')}}" method="get"><input type="submit" value="Log Out"></form>
-    @else
-        <a href="{{route('loginpage')}}">Login</a>
-        <a href="{{route('registerpage')}}">Daftar</a>
-    @endauth
 
-    <div style="flex: 1;">
+    <div style="flex: 1; margin-top:50px">
         @yield('body')
     </div>
 
