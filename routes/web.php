@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\FrakturController;
 use App\Http\Controllers\ItemController;
+use App\Http\Controllers\ViewController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,8 +19,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function(){return view('loginpage');})->middleware('isGuest');;
-Route::get('/welcome', function(){return view('welcome');})->name('welcome');
+Route::get('/', function(){return view('loginpage');})->middleware('isGuest');
+Route::get('/welcome', [ViewController::class, 'viewitem'])->name('welcome');
 
 //LOGIN
 Route::get('/login', function(){return view('loginpage');})->name('loginpage')->middleware('isGuest');
@@ -53,3 +54,6 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('logout')->middle
 Route::get('/frakturPage', [FrakturController::class, 'viewItem'])->name('frakturpage')->middleware('isLogin');
 Route::post('/frakturPage/vaildate', [FrakturController::class, 'validatecart'])->name('validatecart')->middleware('isLogin');
 Route::get('/frakturPage/printfraktur', [FrakturController::class, 'printfraktur'])->name('printfraktur')->middleware('isLogin');
+
+//ERROR
+Route::get('/error', function(){return view('error');});

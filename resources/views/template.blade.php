@@ -34,6 +34,8 @@
         @yield('body')
     </div>
 
+    <script src="{{ asset('js/category.js') }}"></script>
+    <script src="{{ asset('js/popup.js') }}"></script>
     {{-- footer --}}
 
 </body>

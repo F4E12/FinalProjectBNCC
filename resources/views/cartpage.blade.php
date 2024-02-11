@@ -4,6 +4,10 @@
     <div class="pilihan" style="margin-left: 50px">
         <p>Keranjang Anda</p>
     </div>
+    <div class="kosong">
+        @if(!($pesan==1)) <h3>Keranjang kamu masih kosong nihh<br>yukk belanja sekarang</h3>
+        @endif
+    </div>
     <div class="cart-container">
         <div class="left-cart">
             @foreach($cartItems as $item)
@@ -28,7 +32,7 @@
                     <div class="amount-cart">
                         <form action="{{ route('changeamount', ['id'=>$item->id]) }}" method="POST">
                             @csrf
-                            <input type="number" name="cartamount" id="amount-cart-input" value="{{ $item->cartamount }}">
+                            <input type="number" name="cartamount" id="amount-cart-input" value="{{ $item->cartamount }}" min="1" max="{{$item->amount+$item->cartamount}}">
                             <button type="submit" id="ubah-cart">Ubah</button>
                         </form>
                     </div>
@@ -43,6 +47,7 @@
             </div>
             @endforeach
         </div>
+        @if(($pesan==1))
         <div class="right-cart">
             <div class="right-cart-container">
                 <h3>Ringkasan Belanja</h3>
@@ -60,30 +65,27 @@
 
                     <div class="kodepos-cart">
                         <p>Kode Pos</p>
-                        <input type="number" name="postcode" id="">
+                        <input type="number" name="postcode" id="" min="10000" max="99999">
                     </div>
 
                     <div>
-                        <button type="submit" class="pesan-cart">Pesan</button>
+                        <button type="submit" class="pesan-cart" {{ $pesan == 1 ? '' : 'disabled' }}>Pesan</button>
                     </div>
                 </form>
             </div>
         </div>
+        @endif
     </div>
 
-    <div class="error-sec">
-        <div class="error-sec">
-            @if($errors->any())
+    @if($errors->any())
+        <div id="error-sec">
                 <div class="">
                         @foreach($errors->all() as $error)
                             {{ $error }} <br>
                         @endforeach
                 </div>
             </div>
-        @endif
-        <br>
-        <br>
-</div>
+    @endif
 
 
 @endsection

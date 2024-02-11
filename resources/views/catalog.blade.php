@@ -5,6 +5,15 @@
     <div class="pilihan">
         <p>Catalog Kami</p>
     </div>
+    <div class="category-dropdown">
+        Kategori
+        <select name="dropdown">
+            <option value="all" {{ "all" == $choose ? 'selected' : '' }}>Semua</option>
+            @foreach($categories as $category)
+            <option value="{{$category}}" {{ $category == $choose ? 'selected' : '' }}>{{$category}}</option>
+            @endforeach
+        </select>
+    </div>
     <div class="catalog-container">
         @foreach($items as $item)
             <div class="item-container">
@@ -35,4 +44,13 @@
             </div>
         @endforeach
     </div>
+    @if($errors->any())
+        <div id="error-sec">
+                <div class="">
+                        @foreach($errors->all() as $error)
+                            {{ $error }} <br>
+                        @endforeach
+                </div>
+            </div>
+    @endif
 @endsection

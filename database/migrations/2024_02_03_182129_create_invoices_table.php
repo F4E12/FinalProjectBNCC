@@ -17,9 +17,9 @@ return new class extends Migration
             $table->id();
             $table->integer('invoiceid');
             $table->unsignedBigInteger('userid')->nullable();
-            $table->foreign("userid")->references("id")->on("users");
+            $table->foreign("userid")->references("id")->on("users")->onDelete('cascade')->onUpdate('cascade');;
             $table->unsignedBigInteger('itemid')->nullable();
-            $table->foreign("itemid")->references("id")->on("items");
+            $table->foreign("itemid")->references("id")->on("items")->onDelete('cascade')->onUpdate('cascade');;
             $table->integer('cartamount');
             $table->integer('subtotal');
             $table->integer('total');

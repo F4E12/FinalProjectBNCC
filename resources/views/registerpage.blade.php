@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{asset("styles/style.css")}}">
+    <script src="{{ asset('js/category.js') }}"></script>
+    <script src="{{ asset('js/popup.js') }}"></script>
     <title>Register</title>
 </head>
 <body>
@@ -37,14 +39,14 @@
             </div>
         </div>
     </div>
-    <div class="error-sec">
-        @if($errors->any())
-            <div class="">
-                    @foreach($errors->all() as $error)
-                        {{ $error }} <br>
-                    @endforeach
+    @if($errors->any())
+        <div id="error-sec">
+                <div class="">
+                        @foreach($errors->all() as $error)
+                            {{ $error }} <br>
+                        @endforeach
+                </div>
             </div>
-        </div>
     @endif
 </body>
 </html>

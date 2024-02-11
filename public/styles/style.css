@@ -121,18 +121,7 @@ form{
     color: #65B741;
 }
 
-/* TABLE */
-.table{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 100%;
-}
-
-.row-table{
-    display: flex;
-}
-
+/* IMAGE */
 .image-container {
     width: 100%;
     height: 0;
@@ -150,38 +139,20 @@ form{
     object-fit: cover;
 }
 
-.image-col,
-.category-col,
-.itemname-col,
-.price-col,
-.amount-col,
-.buy-col{
-    padding: 5px;
-    width: 15%;
-    border: #000000 solid 1px;
+/* WELCOME PAGE */
+.welcome-text h4,h1{
+    margin-left: 75px;
 }
 
-.image-col{
+.items-welcome-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
 }
 
-.category-col{
-
-}
-
-.itemname-col{
-
-}
-
-.price-col{
-
-}
-
-.amount-col{
-
-}
-
-.buy-col{
-
+.items-welcome-container a{
+    color: #000000;
 }
 
 /* CATALOG PAGE */
@@ -203,6 +174,16 @@ form{
 /* ITEM CONTAINER */
 .item-container{
     width: 20%;
+    height: auto;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    transition: width 0.3s ease;
+}
+
+.item-container:hover{
+    width: 21%;
     height: auto;
     border-radius: 5px;
     padding: 5px;
@@ -318,7 +299,7 @@ form{
 }
 
 #amount-cart-input{
-    width: 30px;
+    width: 40px;
 }
 
 .item-details-cart{
@@ -405,7 +386,7 @@ form{
     width: 25%;
 }
 
-.pesan-cart{
+.pesan-cart {
     text-decoration: none;
     border: #FBF6EE solid 1px;
     color: #FBF6EE;
@@ -415,13 +396,340 @@ form{
     margin-top: 10px;
 }
 
-.pesan-cart:hover{
+.pesan-cart:hover:not(:disabled) {
     text-decoration: none;
     background-color: #FBF6EE;
     color: #65B741;
     padding: 5px;
     border-radius: 5px;
     cursor: pointer;
+}
+
+.pesan-cart:disabled {
+    text-decoration: none;
+    background-color: #cccc;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+
+/* FRAKTUR PAGE */
+.fraktur-container{
+    display: flex;
+    flex-direction: row;
+}
+
+.left-fraktur{
+    margin-left: 50px;
+    width: 60%;
+}
+
+.fraktur-item{
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    padding: 10px 10px 10px 0px;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+}
+
+.image-container-fraktur {
+    width: 100px;
+    height: 100px;
+}
+
+.image-container-fraktur img {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    object-fit: cover;
+}
+
+.image-fraktur,
+.category-fraktur,
+.itemname-fraktur,
+.price-fraktur,
+.amount-fraktur,
+.buy-fraktur{
+    margin-bottom: 5px;
+    margin-left: 10px;
+}
+
+.itemname-fraktur{
+    font-size: larger;
+}
+
+.category-fraktur{
+    font-style: italic;
+    color: #535353;
+}
+
+.price-fraktur{
+    font-weight: bold;
+    font-family: Tahoma;
+}
+
+.amount-fraktur{
+    font-size: smaller;
+}
+
+#amount-fraktur-input{
+    width: 40px;
+}
+
+.item-details-fraktur{
+    width: 50%;
+}
+
+.delete-fraktur{
+    margin-left: 10px;
+}
+
+.subtotal-fraktur{
+    margin-left: 10px;
+}
+
+.subtotal-fraktur p,
+.amount-fraktur p,
+.total-fraktur p{
+    font-style: italic;
+    color: #535353;
+}
+
+.subtotal-fraktur h6,
+.amount-fraktur h6,
+.total-fraktur h6{
+    margin: 0;
+    font-family: Tahoma;
+    font-size: 15px;
+}
+
+.amount-fraktur h6{
+    text-align: center;
+}
+
+.total-fraktur h6{
+    margin-top: 10px;
+}
+
+.confirm-fraktur{
+    margin-left: 50px;
+}
+
+.noinv-fraktur{
+    margin-left: 50px;
+}
+
+.right-fraktur{
+    width: 25%;
+    margin-left: 50px;
+    border-radius: 5px;
+    padding: 10px;
+    height: fit-content;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.fraktur-controller{
+    margin-top: 25px ;
+    margin-left: 50px;
+}
+
+.fraktur-controller a{
+    text-decoration: none;
+    border: #FBF6EE solid 1px;
+    color: #FBF6EE;
+    background-color: #65B741;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.fraktur-controller a:hover{
+    text-decoration: none;
+    background-color: #FBF6EE;
+    color: #65B741;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.detail-alamat-fraktur h3{
+    margin: 0 0 5px 0;
+
+}
+
+.detail-alamat-fraktur h5{
+    margin: 0 0 10px 0;
+    font-size: 15px;
+    font-weight: normal;
+}
+
+.detail-alamat-fraktur p{
+    margin: 0;
+    font-weight: bolder;
+}
+
+.pilihan{
+    padding-top: 10px;
+    margin-left: 75px;
+    font-size: 35px;
+    font-family: 'Lucida Sans';
+    font-weight: bold;
+}
+
+/* ITEM CONTAINER */
+.item-container{
+    width: 20%;
+    height: auto;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+/* ADMIN PAGE */
+.category-dropdown{
+    font-family: 'Lucida Sans';
+    padding: 20px;
+    margin-left: 75px;
+}
+
+.category-dropdown select{
+    font-family: 'Lucida Sans';
+}
+
+.items-admin-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+}
+
+.category-admin,
+.itemname-admin,
+.price-admin,
+.amount-admin,
+.buy-admin,
+.image-admin{
+    margin-bottom: 5px;
+    margin-left: 10px;
+}
+
+.itemname-admin{
+    font-size: larger;
+}
+
+.category-admin{
+    font-style: italic;
+    color: #535353;
+}
+
+.price-admin{
+    font-weight: bold;
+    font-family: Tahoma;
+}
+
+.amount-admin{
+    font-size: smaller;
+}
+
+.admin-controller{
+    display: flex;
+    justify-content: center;
+}
+
+.admin-controller a{
+    text-decoration: none;
+    border: #FBF6EE solid 1px;
+    color: #FBF6EE;
+    background-color: #65B741;
+    padding: 5px;
+    border-radius: 5px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+.admin-controller a:hover{
+    text-decoration: none;
+    background-color: #FBF6EE;
+    color: #65B741;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.admin-controller input{
+    text-decoration: none;
+    border: #FBF6EE solid 1px;
+    color: #FBF6EE;
+    background-color: #65B741;
+    padding: 5px;
+    border-radius: 5px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    height: 30px;
+}
+
+.admin-controller input:hover{
+    text-decoration: none;
+    background-color: #FBF6EE;
+    color: #65B741;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.tambah-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 35%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.tambah-admin{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.tambah-admin h2{
+    margin: 0;
+}
+
+.submit-tambah{
+    background-color: #65B741;
+    margin-top: 5px;
+    border-radius: 10px;
+    border: none;
+    height: 25px;
+    width: 50%;
+    color: #FBF6EE;
+    margin-left: 10px;
+}
+
+.kosong h3{
+    margin-left: 50px;
+    font-family: 'Lucida Sans';
+}
+
+/* ERROR */
+#error-sec {
+    font-family: 'Lucida Sans';
+    position: fixed;
+    top: 50%;
+    width: 35%;
+    height: fit-content;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+    background-color: #ff0000;
+    color: #ffffff;
+    border-radius: 5px;
+    z-index: 9999;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 /* OTHER */
@@ -440,6 +748,10 @@ form{
     margin: 5px;
     font-family: 'Lucida Sans';
     text-align: center;
+}
+
+.item-container a{
+    text-decoration: none;
 }
 
 /* SCROLLBAR */

@@ -10,9 +10,21 @@ use Illuminate\Support\Facades\Auth;
 
 class ItemController extends Controller
 {
-    public function viewitem(){
-        $items=Item::all();
-        return view('catalog',compact('items'));
+    public function viewitem(Request $r){
+        $categories = Item::distinct()->pluck('category')->toArray();
+        $category = $r->input('category');
+        if($category===null){
+            $category = 'all';
+        }
+        if ($category == 'all') {
+            $items = Item::all();
+        } else {
+            $items = Item::where('category', $category)->get();
+        }
+
+        $choose = $category;
+
+        return view('catalog',compact('items', 'categories', 'choose'));
     }
 
     public function addtocart($id)

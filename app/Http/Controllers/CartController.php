@@ -24,7 +24,14 @@ class CartController extends Controller
         $user->total = $total;
         $user->save();
 
-        return view('cartpage',compact('cartItems', 'total'));
+        if($total==0)
+        {
+           $pesan = false;
+        }else{
+            $pesan = true;
+        }
+
+        return view('cartpage',compact('cartItems', 'total', 'pesan'));
     }
 
     public function changeamount(Request $r, $id)
@@ -44,8 +51,8 @@ class CartController extends Controller
                 'lt:'.$maxItem+1
             ],
         ],[
-            'cartamount.required' => 'Jumlah barang wajib diisi.',
-            'cartamount.gt' => 'Jumlah barang harus lebih besar dari 0.',
+            'cartamount.required' => 'Jumlah barang wajib diisi',
+            'cartamount.gt' => 'Jumlah barang harus lebih besar dari 0',
             'cartamount.lt' => 'Jumlah barang harus kurang dari atau sama dengan '.$maxItem,
         ]);
 

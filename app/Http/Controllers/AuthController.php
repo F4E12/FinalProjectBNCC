@@ -62,10 +62,10 @@ class AuthController extends Controller
             'name.max' => 'Nama lengkap harus terdiri dari 3 hingga 40 karakter',
             'email.email' => 'Silakan masukkan alamat email yang valid',
             'email.unique' => 'Email ini sudah terdaftar',
-            'email.ends_with' => 'Email harus diakhiri dengan "@gmail.com".',
-            'email.not_starts_with' => 'Email tidak boleh dimulai dengan ".com".',
+            'email.ends_with' => 'Email harus diakhiri dengan "@gmail.com"',
+            'email.not_starts_with' => 'Email tidak boleh dimulai dengan ".com"',
             'password.min' => 'Password harus terdiri dari 6 hingga 12 karakter',
-            'password.max' => 'Password harus terdiri dari 6 hingga 12 karakter.',
+            'password.max' => 'Password harus terdiri dari 6 hingga 12 karakter',
             'phonenumber.starts_with' => 'Nomor telepon harus dimulai dengan angka 08',
         ]);
 
